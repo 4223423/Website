@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Blog</h1>
+    
+    {% for p in posts %} 
+        <hr>                        <!--줄 긋기-->
+        <h2>{{ p.title }}</h2>      <!--제목-->
+        <h4>{{ p.create_at }}</h4>  <!--시간-->
+        <p>{{ p.content }}</p>      <!--내용-->
+    {% endfor %} 
+    
+    
+</body>
+</html>

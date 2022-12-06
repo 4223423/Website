@@ -11,7 +11,7 @@ class Post(models.Model):
     
     
     def __str__(self) :
-        return f'[{self.pk}]{self.title}'
+        return f'[{self.pk}]{self.title}' # 번호, 인덱스 출력
     
     #author : 추후에 작성 예정.
 
