@@ -6,5 +6,4 @@ urlpatterns = [
     path('', views.landing), 
     
     
-    
 ]
