@@ -13,6 +13,10 @@ class Post(models.Model):
     def __str__(self) :
         return f'[{self.pk}]{self.title}' # 번호, 인덱스 출력
     
+    
+    def get_absolute_url(self):
+        return f'/blog/{self.pk}/'
+    
     #author : 추후에 작성 예정.
 
 # Create your models here.
