@@ -154,4 +154,4 @@ class TestView(TestCase) :
         self.assertIn(post_001.content, post_area.text)
         # html parser 했으니까 text 로 적어주는거임
         
-        # ( 나중에는 작성자가 제대로 나오는지 카테고리가 어떤 식으로 짜여있는지 댓글창은 구현됐는지 테스트 할 수 있다 )git 
+        # ( 나중에는 작성자가 제대로 나오는지 카테고리가 어떤 식으로 짜여있는지 댓글창은 구현됐는지 테스트 할 수 있다 )
