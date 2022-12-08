@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 import os
 
 # 함수를 사용하는 방법과 class를 사용하는 방법
@@ -9,16 +10,18 @@ class Post(models.Model):
     content = models.TextField()
     
     head_image = models.ImageField(upload_to='blog/images/%Y/%m/%d',blank=True)
-
+    file_upload = models.FileField(upload_to='blog/files/%Y/%m/%d',blank=True)
+    
     
     create_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
-    file_upload = models.FileField(upload_to='blog/files/%Y/%m/%d',blank=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)   
+    
+    
     
     def __str__(self) :
-        return f'[{self.pk}]{self.title}' # 번호, 인덱스 출력
-    
+        return f'[{self.pk}]{self.title}::{self.author}' # 번호, 인덱스 출력
     
     def get_absolute_url(self):
         return f'/blog/{self.pk}/'
