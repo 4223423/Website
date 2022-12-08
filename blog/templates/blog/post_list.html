@@ -21,7 +21,7 @@
                     </div>
                     <div class="card-footer text-muted">
                         Posted on {{ p.create_at }} by
-                        <a href="#">작성자 명이 들러갈 예정</a>
+                        <a href="#">{{ p.author | upper}}</a>
                     </div>
                 </div>
                 {% endfor%}

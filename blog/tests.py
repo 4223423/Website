@@ -1,12 +1,16 @@
 from django.test import TestCase, Client
 from bs4 import BeautifulSoup
+from django.contrib.auth.models import User
 from .models import Post
 # 자체 DB 를 새로 만들어서 가상 공간에서 테스트 한다
 
 class TestView(TestCase) :
-    def setup(self) :
-        self.client -= Client()
+    def setUp(self) :
+        self.client = Client()
         # client = 컴퓨터 / 컴퓨터에서 테스트해서 날리면 -> goorm 에서 돌아간다
+        self.user_aaaa = User.objects.create_user(username="aaaa", password="somepassword") 
+        self.user_bbbb = User.objects.create_user(username="bbbb", password="somepassword") 
+        
         
     def navbar_test(self, soup) :
         navbar = soup.nav
@@ -74,11 +78,13 @@ class TestView(TestCase) :
         post_001 = Post.objects.create(
             title = '첫번째 포스트 입니다.',
             content = 'Hello World. We are the World',
+            author = self.user_aaaa
         )
         
         post_002 = Post.objects.create(
             title = '두번째 포스트 입니다.',
             content = '1등이 전부가 아니잖아요!',
+            author = self.user_bbbb
         ) 
          
         self.assertEqual(Post.objects.count(), 2)
@@ -99,16 +105,20 @@ class TestView(TestCase) :
 
         # 3.4 '아직 게시물이 없습니다' 라는 문구가 더 이상 나타나지 않는다.
         self.assertNotIn('아직 게시물이 없습니다', main_area.text)
+        self.assertIn(self.user_aaaa.username.upper(),main_area.text) 
+        self.assertIn(self.user_bbbb.username.upper(),main_area.text) 
+        
 
     # ------------------------------------------------------------------------------------
         
-    def test_test_detail(self) : # 매개변수로 받는게 없더라도 self 적어야함
+    def test_post_detail(self) : # 매개변수로 받는게 없더라도 self 적어야함
                                  # 만약에 pk 도 같이 받는다 하면 self, pk 이렇게
         
         # 1.1 포스트 하나 생성하기
         post_001 = Post.objects.create(
             title = '첫번째 포스트 입니다.',
             content = 'Hello World. We are the World',
+            author = self.user_aaaa,
         )
         
         # 1.2 포스트 url은 ( 상세 페이지 주소 ) '/blog/1/' 이렇게 pk 가 붙어있다
@@ -138,6 +148,7 @@ class TestView(TestCase) :
         self.assertIn(post_001.title, post_area.text)
         
         # 2.5 첫번째 포스트의 작성자가 포스트 영역에 있는가 ( 지금은 아직 구현 X )
+        self.assertIn(self.user_aaaa.username.upper(), post_area.text)
         
         # 2.6 첫번째 포스트의 내용이 포스트 영역에 있는가
         self.assertIn(post_001.content, post_area.text)
