@@ -1,8 +1,13 @@
 
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import Post, Category, Tag
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin   
 from django.shortcuts import render, redirect
+
+class PostUpdate(LoginRequiredMixin, UpdateView) :
+    model = Post
+    fields = ['title','hook_text', 'content', 'head_image', 'file_upload', 'category', 'tags'] # 변수라서 소문자    
+        
 
 class PostCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView) :
     model = Post

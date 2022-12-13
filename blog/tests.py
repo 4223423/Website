@@ -213,5 +213,54 @@ class TestView(TestCase):
         self.assertEqual(last_post.title, 'Post Form 만들기')
         self.assertEqual(last_post.author.username, 'bbbb')
         
+
+    def test_update_post(self) :
+        update_post_url = f'/blog/update_post/{self.post_003.pk}/'
         
+        # 로그인 안된 경우
+        response = self.client.get(update_post_url)
+        self.assertNotEqual(response.status_code, 200)
         
+        # 로그인 했지만 작성자가 아닌 경우
+        self.assertNotEqual(self.post_003.author, self.user_aaaa)
+        self.client.login(
+            username = self.user_aaaa.username, 
+            password = "somepassword"
+        )
+        
+        response = self.client.get(update_post_url)
+        self.assertEqual(response.status_code, 403)
+        # 403 = 권한 없음, db에 접근할려고 하나 아이디랑 패스워드가 없을 경우
+        # 404 = 파일이 없음
+        
+        # 로그인 했는데 작성자인 경우 (bbbb)
+        self.client.login(
+            username = self.post_003.author.username,
+            password = 'somepassword'
+        )
+    
+        response = self.client.get(update_post_url)
+        self.assertEqual(response.status_code, 200) # 제대로 작동
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        self.assertEqual('Edit Post - Blog', soup.title.text)
+        main_area = soup.find('div', id="main-area")
+        self.assertIn('Edit Post', main_area.text)
+        
+        # 이렇게 넣어준다 
+        response = self.client.post(
+            update_post_url,
+            {
+                'title' : '세 번째 포스트를 수정했습니다.',
+                'content' : '안녕 세계? 우리는 하나!',
+                'category' : self.category_music.pk
+            },
+            follow = True
+        )
+        
+        # 이렇게 넣은거 테스트
+        soup = BeautifulSoup(response.content, 'html.parser')
+        main_area = soup.find('div', id="main-area")
+        self.assertIn('세 번째 포스트를 수정했습니다.', main_area.text)
+        self.assertIn('안녕 세계? 우리는 하나!', main_area.text)
+        self.assertIn(self.category_music.name, main_area.text)
