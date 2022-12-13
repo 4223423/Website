@@ -10,6 +10,9 @@ class TestView(TestCase):
         self.user_aaaa = User.objects.create_user(username='aaaa', password='somepassword')
         self.user_bbbb = User.objects.create_user(username='bbbb', password='somepassword')
 
+        self.user_bbbb.is_staff = True
+        self.user_bbbb.save()
+        
         self.category_programming = Category.objects.create(name='programming', slug='programming')
         self.category_music = Category.objects.create(name='music', slug='music')
 
@@ -182,8 +185,12 @@ class TestView(TestCase):
         response = self.client.get('/blog/create_post')
         self.assertNotEqual(response.status_code, 200)
         
+        self.client.login(username="aaaa", password="somepassword")
+        response = self.client.get('/blog/create_post')
+        self.assertNotEqual(response.status_code, 200)
+        
         # 로그인을 한다.
-        self.client.login(username='aaaa', password='somepassword')
+        self.client.login(username='bbbb', password='somepassword')
         
         
         response = self.client.get('/blog/create_post/')
@@ -204,7 +211,7 @@ class TestView(TestCase):
                 
         last_post = Post.objects.last()
         self.assertEqual(last_post.title, 'Post Form 만들기')
-        self.assertEqual(last_post.author.username, 'aaaa')
+        self.assertEqual(last_post.author.username, 'bbbb')
         
         
         
