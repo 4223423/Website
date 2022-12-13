@@ -12,7 +12,7 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return f'/blog/category/{self.slug}/'
-    # run.goorm.io/blog/category/프로그래밍/
+        # run.goorm.io/blog/category/프로그래밍/
 
     class Meta:
         verbose_name_plural = 'categories'
