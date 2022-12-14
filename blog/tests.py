@@ -222,9 +222,9 @@ class TestView(TestCase):
         self.assertNotEqual(response.status_code, 200)
         
         # 로그인 했지만 작성자가 아닌 경우
-        self.assertNotEqual(self.post_003.author, self.user_aaaa)
+        self.assertNotEqual(self.post_003.author, self.user_bbbb)
         self.client.login(
-            username = self.user_aaaa.username, 
+            username = self.user_bbbb.username, 
             password = "somepassword"
         )
         
@@ -232,6 +232,7 @@ class TestView(TestCase):
         self.assertEqual(response.status_code, 403)
         # 403 = 권한 없음, db에 접근할려고 하나 아이디랑 패스워드가 없을 경우
         # 404 = 파일이 없음
+        
         
         # 로그인 했는데 작성자인 경우 (bbbb)
         self.client.login(
