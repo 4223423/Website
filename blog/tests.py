@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from bs4 import BeautifulSoup
 from django.contrib.auth.models import User
-from .models import Post, Category, Tag
+from .models import Post, Category, Tag, Comment
 
 
 class TestView(TestCase):
@@ -43,6 +43,15 @@ class TestView(TestCase):
         )
         self.post_003.tags.add(self.tag_pyhon_kor)
         self.post_003.tags.add(self.tag_pyhon)
+        
+        self.comment_001 = Comment.objects.create(
+            post = self.post_001, 
+            author = self.user_aaaa,
+            content = '첫 번째 댓글입니다.',
+            
+            
+        )
+        
         
         
 
@@ -143,7 +152,12 @@ class TestView(TestCase):
 
         self.assertIn(self.user_bbbb.username.upper(), post_area.text)
         self.assertIn(self.post_001.content, post_area.text)
-
+        
+        # comment area
+        comments_area = soup.find('div', id='comment-area')
+        comment_001_area = comments_area.find('div', id='comment-1')
+        self.assertIn(self.comment_001.author.username, comment_001_area.text)
+        self.assertIn(self.comment_001.content, comment_001_area.text)
     
     
     def test_category_page(self):
@@ -273,3 +287,54 @@ class TestView(TestCase):
         self.assertIn('세 번째 포스트를 수정했습니다.', main_area.text)
         self.assertIn('안녕 세계? 우리는 하나!', main_area.text)
         self.assertIn(self.category_music.name, main_area.text)
+        
+
+    def test_comment_form(self) :
+        self.assetEqual(Comment.objects.count(), 1)
+        self.assetEqual(self.post_001.comments_set.count(), 1)
+        
+        #로그인하지 않은 상태
+        response = self.client.get(self.post_001.get_absolute_url())
+        self.assetEqual(response.status_code, 200)
+        
+        soup = BeautifulSoup(response.comtent, 'html.parser')
+        
+        comment_area = soup.find('div', id='comment-area')
+        self.assertIn('log in and leave a comment', comment_area.text)
+        self.assertFalse(comment_area.find('form', id='comment-form'))
+        
+        # 로그인한 상태
+        self.client.login(username='aaaa', password='somepassword')
+        response = self.client.get(self.post_001.get_absolute_url())
+        self.assertEqual(response.status_code, 200)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        comment_area = soup.find('div', id="comment-area")
+        self.assertNotIn('log in and leave a comment', comment_area.text)
+             
+        comment_form = comment_area.find('form', id='comment-form')
+        self.assertTrue(comment.form.find('textarea', id="id_content"))
+        
+        response = self.client.post(
+            self.post_001.get_absolute_url() + 'new_comment/',
+            {
+                'content' : 'aaaa의 댓글입니다.',
+            },
+            follow = True
+        
+        )
+        self.assertEqual(response.status_code, 200)
+        
+        self.assertEqual(Comment.objects.count(), 2)
+        self.assertEqual(self.post_001.comment_set.count(), 2)
+        
+        new_comment = Comment.objects.last()
+        
+        soup = BeautifulSoup(response.content, 'html.parser')
+        self.assertIn(new_comment.post.title, soup.title.text)
+        
+        comment_area = soup.find('div', id='comment-area')
+        new_comment_div = comment_area.find('div', id=f'comment-{new_comment.pk}')
+        self.assertIn('aaaa', new_comment_div.text)
+        self.assertIn('aaaa의 댓글입니다.', new_comment_div.text)
+        
