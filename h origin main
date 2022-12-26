@@ -1,0 +1,167 @@
+[33mcommit 786ca18de5151f6b90fc0462bb66e9b2d9ffeb6f[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Wed Dec 21 07:06:11 2022 +0000
+
+    comment form post_detail
+
+[33mcommit b9fa96d20332682aea09f03b5869544b8f74ba79[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Wed Dec 14 07:14:19 2022 +0000
+
+    Content input markdownx
+
+[33mcommit 7b842dbf550e0402a4f097582f492571cb1d1ce3[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Wed Dec 14 06:22:48 2022 +0000
+
+    Markdownx
+
+[33mcommit 0f407999b6f30c795b86625e3aaa3b585deb666b[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Wed Dec 14 02:09:58 2022 +0000
+
+    Edit Post
+
+[33mcommit 292470ce01241a236f1e6147226a4afc9d6c3ff7[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Tue Dec 13 08:15:36 2022 +0000
+
+    Permission
+
+[33mcommit 49e96448f4d9282c3cf0c3b97a46354cfd81e22a[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Tue Dec 13 06:30:51 2022 +0000
+
+    post page authenticated
+
+[33mcommit 73071da59851db95e91fd8faa2f6701d8606167d[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Tue Dec 13 03:17:43 2022 +0000
+
+    logined user page
+
+[33mcommit 185e0d6a7739fa95f1d3f3faf28db28a22007525[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Mon Dec 12 07:54:38 2022 +0000
+
+    tag update
+
+[33mcommit 8d0ccf832d3f45e6efa0034472c9cc5e47fd5e4d[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Mon Dec 12 06:23:29 2022 +0000
+
+    list -detail tag
+
+[33mcommit 44471a97e93e22b5cb1e52fbe605ccb0fb2ee356[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Mon Dec 12 03:33:11 2022 +0000
+
+    Category pages maked
+
+[33mcommit caf46435a18716ed20f47b524ee98d96db860c4a[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Mon Dec 12 01:31:35 2022 +0000
+
+    category
+
+[33mcommit 227c6db45cd8a1c1d843f159ec0f6a85167e052c[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Thu Dec 8 12:55:30 2022 +0000
+
+    author test
+
+[33mcommit 2646c2d0fb4416b66e96d7d9a119a1d0a4c65d23[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Thu Dec 8 08:30:06 2022 +0000
+
+    User test
+
+[33mcommit 7aae2adb54217685bee999c9d2cd2e5e603abc4a[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Thu Dec 8 08:27:25 2022 +0000
+
+    User test
+
+[33mcommit d764a4ef381b01b7594a1d490c46d9419bcc1ef4[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Thu Dec 8 07:20:37 2022 +0000
+
+    author
+
+[33mcommit 5f832a7dee1af068afb77e92a63e552e94a58ccb[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Thu Dec 8 06:10:44 2022 +0000
+
+    navbar footer update
+
+[33mcommit 3191d8b9c40e7aa8b7c9901324cfb952866fb70a[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Thu Dec 8 03:35:16 2022 +0000
+
+    list-detail design equals
+
+[33mcommit 9030e637514c6f5d4e6133c247a6166c7b346b51[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Thu Dec 8 00:59:04 2022 +0000
+
+    blog_list images update
+
+[33mcommit 3cc5c7f3bc3eb175c6305bd54aa9c20fbf1a7da8[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Wed Dec 7 16:07:43 2022 +0000
+
+    change post_list & fix
+
+[33mcommit aae999585ec3c878bf70490b87ebee6389485974[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Tue Dec 6 08:23:44 2022 +0000
+
+    bootstrap update
+
+[33mcommit e689eda2ba2d20a8cf895bc5eaa1849f3c909641[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Tue Dec 6 07:05:58 2022 +0000
+
+    CBV Detail page update
+
+[33mcommit dc57e25a65cb89ae078e8c17570aed22aba853ec[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Tue Dec 6 05:46:55 2022 +0000
+
+    FBV 대문페이지
+
+[33mcommit 413a079dba0a438abedb4fc9f03d973b3f7db3db[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Tue Dec 6 03:37:50 2022 +0000
+
+    FBV 포스트 상세 페이지
+
+[33mcommit 3bf07d11e1bafe5a34ef0f36045b3ded56bb1889[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Tue Dec 6 02:09:40 2022 +0000
+
+    FBV blog pages
+
+[33mcommit 3e90533ef90ed8408116cab2a913af12ca503554[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Mon Dec 5 07:12:34 2022 +0000
+
+    Post 모델 생성, 시간 설정하기
+
+[33mcommit a1ba257ad6f63f08e9d8d334f771ca152f9109d4[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Mon Dec 5 05:17:33 2022 +0000
+
+    Django 프로젝트 두번째 commit
+
+[33mcommit e6ef8dcd87c8a494a583d633f1bf4b1f664755b2[m
+Author: cyoyoyoa <cyoyoyoa@gmail.com>
+Date:   Mon Dec 5 04:56:18 2022 +0000
+
+    Django 프로젝트 생성
+
+[33mcommit ffddd14cbdc9ab00d2074133682ad48ba7d49e72[m
+Author: 4223423 <114375847+4223423@users.noreply.github.com>
+Date:   Mon Dec 5 11:20:56 2022 +0900
+
+    Initial commit

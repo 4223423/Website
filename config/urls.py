@@ -20,8 +20,9 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
+    path('board/', include('board.urls')),
     path('blog/', include('blog.urls')),
-    path('blog/', include('allauth.urls')),
+    path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('markdownx/', include('markdownx.urls')),
     path('', include('single_pages.urls')),
