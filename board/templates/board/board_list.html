@@ -14,7 +14,7 @@
         {% for board in board_list %}
     <tr>
       <th scope="row">{{ board.pk }}</th>
-        <td><a href="{{ board.get_absolute }}">{{ board.title }}</a></td> 
+        <td><a href="{{ board.get_absolute_url }}">{{ board.title }}</a></td> 
         <!-- 제목에 링크 걸기 - models -->
       <td>{{ board.author }}</td>
       <td>{{ board.created_at }}</td>
@@ -27,7 +27,7 @@
 <!-- 로그인 한 사람에 한해서 글쓰기 가능 -->
     <a href="/board/create/" type="button" class="btn btn-secondary float-right">글쓰기</a>
 {% else %}
-    <a type="button" class="btn btn-secondary float-right" href="#" data-toggle="moadl"
+    <a type="button" class="btn btn-secondary float-right" href="#" data-toggle="modal"
        data-target="loginModal">글쓰기</a>
 {% endif %}
 
