@@ -4,10 +4,11 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>센텀직훈</title>
+    <title>플랜티 : PLANTY</title>
     <link rel="stylesheet" href="{% static 'blog/bootstrap/bootstrap.min.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'single_pages/css/landing.css' %}" media="screen">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    
+    
 </head>
 <body>
     {% include 'blog/navbar.html' %}
@@ -15,65 +16,11 @@
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-lg-6 text-light">
-                    <h2 class="mt-5">센텀직훈 Django</h2>
+                    <h2 class="mt-5">Plant Blog</h2>
                     <i class="fa-solid fa-user"></i>
-                    <p>웹프레임워크중 하나인 Django을 이용한 Blog 만들기</p>
-                    <div>Language! <h1 class="text"></h1></div>
-                    <script> 
-                        const $text = document.querySelector(".text");
+                
 
-                        // 글자 모음
-                        const letters = [
-                          "HTML",
-                          "CSS", 
-                          "JavaScript"
-                        ];
-
-                        // 글자 입력 속도
-                        const speed = 100;
-                        let i = 0;
-
-                        // 타이핑 효과
-                        const typing = async () => {  
-                          const letter = letters[i].split("");
-
-                          while (letter.length) {
-                            await wait(speed);
-                            $text.innerHTML += letter.shift(); 
-                          }
-
-                          // 잠시 대기
-                          await wait(800);
-
-                          // 지우는 효과
-                          remove();
-                        }
-
-                        // 글자 지우는 효과
-                        const remove = async () => {
-                          const letter = letters[i].split("");
-
-                          while (letter.length) {
-                            await wait(speed);
-
-                            letter.pop();
-                            $text.innerHTML = letter.join(""); 
-                          }
-
-                          // 다음 순서의 글자로 지정, 타이핑 함수 다시 실행
-                          i = !letters[i+1] ? 0 : i + 1;
-                          typing();
-                        }
-
-                        // 딜레이 기능 ( 마이크로초 )
-                        function wait(ms) {
-                          return new Promise(res => setTimeout(res, ms))
-                        }
-
-                        // 초기 실행
-                        setTimeout(typing, 1500);
-                    </script>
-                    
+ <!--Recent posts           
                 </div>
                 <div class="col-lg-5 mt5">
                     <h3 class="text-light mt-5">Blog - Recent posts</h3>
@@ -88,12 +35,12 @@
                         <span class="badge badge-pill badge-light float-right">
                             {{ post.author.username }}
                             &nbsp;&nbsp;
-                            {{ post.create_at }}
+                            {{ post.created_at }}
                         </span>
                     </div>
                     
                 </div>
-                {% endfor %}
+                {% endfor %} -->
                 </div>
             </div>
         </div>
@@ -107,6 +54,8 @@
     <div class="fixed-bottom">
         {% include 'blog/footer.html' %}
     </div>
+    
+
     
 
 

@@ -1,15 +1,18 @@
+
+
+
+
 body {
-    background: url('/static/single_pages/images/PC.png') no-repeat center center fixed;
+    background: url('/static/single_pages/images/plant3.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
    
+}
+   
     
-}
-/* .mt-5 {
-    font-family: 'Anton', sans-serif; */
-}
+
 section {
     margin-bottom: 150px;
 }
@@ -17,4 +20,7 @@ section {
 .card {
     background-color: rgba(255,255,255,0.5); 
 }
+
+
+
 

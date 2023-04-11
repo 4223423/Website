@@ -13,19 +13,19 @@
 
 
 
-                <h1>Blog 
+                <h3>Blog 
                     {% if search_info %} 
                         <small class="text-muted">{{ search_info }}</small>
                         {% endif %}
                     
                     {% if category %}
-                        <span class="badge badge-secondary">{{ category }}</span>
+                        <span class="badge badge-outline-secondary">{{ category }}</span>
                         {% endif %}
                     
                     {% if tag %}
-                        <span class="badge badge-secondary">{{ tag }}({{ tag.post_set.count }})</span>
+                        <span class="badge badge-outline-secondary">{{ tag }}({{ tag.post_set.count }})</span>
                         {% endif %}
-                </h1>
+                </h3>
             {% if post_list.exists %}
                 {% for p in post_list %}
                 <!-- Blog Post -->
@@ -38,14 +38,14 @@
                     <div class="card-body">
                         
                         {% if p.category %}
-                            <span class="badge badge-secondary float-right">{{ p.category }}</span>
+                            <span class="badge badge-outline-secondary float-right">{{ p.category }}</span>
                         {% else %}
-                            <span class="badge badge-secondary float-right">미분류</span>
+                            <span class="badge badge-outline-secondary float-right">미분류</span>
                         {% endif %}
                         
-                        <h2 class="card-title">{{ p.title }}</h2>
+                        <h4 class="card-title">{{ p.title }}</h4>
                         {% if p.hook_text %}
-                            <h5 class="text-muted">{{ p.hook_text}}</h5>
+                            <h6 class="text-muted">{{ p.hook_text}}</h6>
                         {% endif %}
                         <p class="card-text">{{ p.get_content_markdown | truncatewords_html:45 | safe }}</p>
                         
@@ -62,7 +62,7 @@
                         
                         
                         
-                        <a href="{{ p.get_absolute_url }}" class="btn btn-primary">Read More &rarr;</a>
+                        <a href="{{ p.get_absolute_url }}" class="btn btn-outline-secondary">Read More &rarr;</a>
                     </div>
                     <div class="card-footer text-muted">
                         Posted on {{ p.create_at }} by
@@ -73,7 +73,7 @@
                 </div>
                 {% endfor%}
                 {% else %}
-                    <h3>아직 게시물이 없습니다</h3>
+                    <h4>아직 게시물이 없습니다</h4>
                 {% endif %}
                 
                 <!-- Blog Post -->

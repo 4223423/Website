@@ -3,7 +3,7 @@
 {% block head_title %}Create Post - Blog{% endblock %}
 
 {% block main_area %} 
-    <h1>Create New Post</h1>
+    <h3>Create New Post</h3>
     <hr>
     <form method="post" enctype="multipart/form-data"> {% csrf_token %}
 
@@ -15,9 +15,17 @@
             </div>
             <br>
  
-        <button type="submit" class="btn btn-primary float-right">
+        <button type="submit" class="btn btn-outline-secondary float-right">
             Submit
         </button>
+        
+        
+            <!-- START SCROLL TO TOP  -->
+
+        <div class="scrollup">
+            <a href="#"><i class="fa fa-chevron-up"></i></a>
+        </div>
+        
         
     </form>
     {{ form.media }}
